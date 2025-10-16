@@ -1,18 +1,183 @@
-body {font-family: 'Segoe UI', Tahoma, sans-serif; margin:0; background:#f8f9fa; color:#222;}
-a {color:#0A192F;}
-header a {color:#64ffda; text-decoration:none; font-weight:500;}
-header a:hover {color:#fff; text-decoration:underline;}
-header {background:#0A192F; color:white; padding:40px 20px;}
-.header-container {display:flex; align-items:center; gap:20px;}
-.profile-img {width:170px; height:170px; border-radius:50%; object-fit:cover; border:3px solid #64ffda;}
-.header-text {max-width:800px;}
-nav ul {display:flex; justify-content:center; list-style:none; margin:0; padding:10px; background:#112240;}
-nav li {margin:0 15px;}
-nav a {color:#64ffda; text-decoration:none; font-weight:bold;}
-nav a:hover {text-decoration:underline;}
-section {max-width:950px; margin:40px auto; padding:0 20px;}
-h2 {color:#0A192F; border-bottom:2px solid #64ffda; display:inline-block; padding-bottom:4px;}
-.subsection {margin-top:20px;}
-ul li {margin-bottom:10px;}
-a {color:#0A192F;}
-footer {background:#0A192F; color:#a8b2d1; text-align:center; padding:20px;}
+/* General body styling */
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  margin: 0;
+  background: #f8f9fa;
+  color: #222;
+  line-height: 1.6; /* Improve readability */
+  font-size: 18px; /* Slightly larger base font size for body content */
+}
+
+/* Links */
+a {
+  color: #007bff; /* Blue color for all links after the header */
+  text-decoration: none;
+  font-size: 18px; /* Increase font size of links */
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #0056b3; /* Darker blue when hovered */
+}
+
+/* Header styling (unchanged) */
+header {
+  background: #0A192F;
+  color: white;
+  padding: 40px 20px;
+}
+
+header a {
+  color: #64ffda;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+header a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Header container */
+.header-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Profile image */
+.profile-img {
+  width: 250px; /* Increased size */
+  height: 250px; /* Increased size */
+  border-radius: 50%; /* Keeps the image circular */
+  object-fit: cover; /* Ensures the image covers the circular area */
+  border: 3px solid #64ffda; /* Keeps the border */
+}
+
+/* Header text */
+.header-text {
+  max-width: 800px;
+}
+
+/* Navigation bar */
+nav {
+  display: flex;
+  justify-content: flex-end; /* Right-align the nav menu */
+  background: #112240;
+  padding: 10px 20px;
+  margin-top: 10px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  margin: 0;
+}
+
+nav a {
+  color: #64ffda;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Sections */
+section {
+  max-width: 950px;
+  margin: 40px auto;
+  padding: 0 20px;
+  text-align: justify; /* Justify text for better readability */
+  font-size: 18px; /* Increased font size for body content */
+}
+
+h2 {
+  color: #0A192F;
+  border-bottom: 2px solid #64ffda;
+  display: inline-block;
+  padding-bottom: 4px;
+  margin-bottom: 20px; /* Add space after headings */
+  font-size: 24px; /* Larger font size for headings */
+}
+
+.subsection {
+  margin-top: 20px;
+}
+
+ul li {
+  margin-bottom: 15px; /* More space between list items */
+  font-size: 18px; /* Increased font size for list items */
+}
+
+/* Footer */
+footer {
+  background: #0A192F;
+  color: #a8b2d1;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px; /* Space above the footer */
+  font-size: 18px; /* Increased font size for footer text */
+  width: 100%; /* Make the footer span the full width */
+  position: relative; /* Ensure it spans across the screen */
+  bottom: 0;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+  /* Make sure the header remains intact */
+  header {
+    padding: 30px 20px; /* Adjust the padding for mobile */
+  }
+
+  .header-container {
+    flex-direction: column; /* Stack profile image and text vertically */
+    text-align: center; /* Center the content */
+  }
+
+  /* Profile image adjustment for mobile */
+  .profile-img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px; /* Space below the image */
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+    padding: 0;
+  }
+
+  /* Sections adjustments for smaller screens */
+  section {
+    padding: 0 15px;
+    font-size: 18px; /* Increased font size for readability on mobile */
+  }
+
+  /* Footer */
+  footer {
+    padding: 15px;
+    font-size: 18px; /* Mobile font size */
+  }
+}
+
+/* Tablet and larger screen responsiveness */
+@media screen and (min-width: 769px) {
+  /* Make sure the text is justified for large screens */
+  section {
+    text-align: justify;
+  }
+}
