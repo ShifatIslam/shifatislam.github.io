@@ -45,13 +45,13 @@ header a:hover {
   gap: 20px;
 }
 
-/* Profile image */
+/* Profile image (square) */
 .profile-img {
-  width: 250px; /* Increased size */
-  height: 250px; /* Increased size */
-  border-radius: 50%; /* Keeps the image circular */
-  object-fit: cover; /* Ensures the image covers the circular area */
+  width: 250px; /* Keep the size */
+  height: 250px; /* Keep the size */
+  object-fit: cover; /* Ensures the image covers the area */
   border: 3px solid #64ffda; /* Keeps the border */
+  /* border-radius removed to make it square */
 }
 
 /* Header text */
@@ -142,11 +142,12 @@ footer {
     text-align: center; /* Center the content */
   }
 
-  /* Profile image adjustment for mobile */
+  /* Profile image adjustment for mobile (square) */
   .profile-img {
     width: 150px;
     height: 150px;
     margin-bottom: 20px; /* Space below the image */
+    /* border-radius removed for square image */
   }
 
   nav {
