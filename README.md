@@ -1,120 +1,327 @@
-# Shifat Islam — academic portfolio
+# Shifat Islam — Academic Portfolio
 
-A complete static website for https://shifatislam.github.io/, redesigned around the structure and restrained academic style of the supplied Tashreef Muhammad reference.
+Personal academic portfolio of **Shifat Islam**, a Research Engineer working at the intersection of **low-resource NLP, multimodal AI, computer vision, and healthcare AI**.
 
-## Preview
+🌐 **Website:** [shifatislam.github.io](https://shifatislam.github.io/)
+📚 **Google Scholar:** [Profile](https://scholar.google.com/citations?user=xO32H0oAAAAJ&hl=en)
+💻 **GitHub:** [ShifatIslam](https://github.com/ShifatIslam)
+🔗 **ORCID:** [0009-0008-8433-0264](https://orcid.org/0009-0008-8433-0264)
+💼 **LinkedIn:** [Shifat Islam](https://linkedin.com/in/shifat-islam)
 
-Extract this ZIP and open `index.html` in a browser. Keep `style.css`, `script.js`, `data/`, and `assets/` alongside it. No server, npm, framework, API key, or installation is required. All main content is available without JavaScript.
+---
 
-## Final CV and Scholar update
+## About
 
-- Every Google Scholar link uses `https://scholar.google.com/citations?user=xO32H0oAAAAJ&hl=en` and opens a new tab with `noopener noreferrer`.
-- Automated Scholar retrieval still returns HTTP 403. Links are validated in the generated HTML; live profile loading and yearly metrics cannot be guaranteed from this environment.
-- A.R.i.S.E leadership: **2024–Present**, using the reference start year as requested. Research Mentor & Member since **January 2024**, from your CV.
-- UIU Research Engineer: **September 2023–Present**.
-- BUET PG Research Assistant: **July 2022–August 2023**.
-- AUST UG Research Student: **January 2019–December 2021**.
-- BUET MSc: **April 2022–Present**, thesis defence pending.
-- AUST BSc: **April 2017–January 2022**.
-- Consolidated the duplicate postgraduate-research entry into the CV's BUET assistantship. Education remains separately dated.
-- Citation overview shows **80+**, updated directly by the user; no explanatory note is displayed below the count. The annual chart still awaits verified year-by-year figures.
-- Mentorship count is **20+**, updated directly by the user because the CV was backdated.
-- VGDNet is now listed as **Submitted, QPAIN 2026**, matching the CV. Your requested published total remains 12; the supplied bibliography still has 11 published entries plus that submitted manuscript.
+I work on **language and multimodal AI for low-resource settings**, with a particular focus on **Bangla and regional language technologies**, domain adaptation, visual-language understanding, and healthcare applications.
 
-## Typography and mentorship edits
+My research spans:
 
-- Newsreader for headings and IBM Plex Sans for interface/body text, using the exact Google Fonts families and weights from the reference. Internet access is required to load these fonts; system fallbacks remain available offline.
-- Header navigation includes both Mentorship and Experience.
-- Research and mentorship body copy contains no bold emphasis.
-- Each mentorship project is condensed to two bullets while retaining the key scale, scope and future target.
-- Experience and education now use a vertical timeline. The six consolidated date ranges are populated from the CV/reference; edit `from` and `to` in `data/content.json` and rebuild. Use `Present` for an ongoing role/degree. No dates have been guessed.
-- Published-paper total is 12, per your correction, stored in `profile.publishedCount` independently of the displayed paper list.
-- A total-citation metric is beside the paper total. It uses the user-reported 80+ lower bound until a current Scholar total is provided; add an exact total to `data/metrics.json`. This total displays even if annual counts are still unavailable.
-- The current list contains 11 published entries and VGDNet labeled Submitted (2026), as in the CV. Please confirm whether VGDNet is now published or provide the missing twelfth published paper so the detailed list can be reconciled.
+* **Low-Resource NLP & Language Models**
 
-## Earlier edits
+  * Bangla NLP and regional language varieties
+  * Named entity recognition
+  * Hate-speech detection
+  * Domain adaptation and language modeling
+  * Natural-language-to-code generation
+  * Healthcare language processing
 
-- All five hero links use matching boxed buttons: Get in touch, Google Scholar, GitHub, ORCID, and LinkedIn.
-- Portrait enlarged with responsive sizing.
-- Section title changed to Research; all three topic descriptions and bullet lists use your supplied wording; body emphasis was subsequently removed.
-- All section and topic numbering removed. Quantities, publication years, and research metrics remain.
-- Added all five Research Mentorship projects, subsequently condensed at your request; the spice VQA figure remains a target, not a completed result.
-- Updated meta description, hero summary and contact paragraph exactly as requested. Open Graph title remains Shifat Islam | Research Engineer.
-- Footer includes A.R.I.S.E, LinkedIn and Google Scholar, with ORCID removed from the footer.
-- Section order: Research → Publications → Code & Data → Open Datasets → Applied Projects → Research Mentorship → Grants → Experience → Education → Awards → Skills → Contact.
+* **Multimodal AI & Computer Vision**
 
-Research, mentorship, hero summary, meta description and contact copy can all be maintained in `data/content.json`.
+  * Vision-language models
+  * Bengali Visual Question Answering
+  * Multimodal dataset development
+  * Transformer-based computer vision
+  * Explainable AI
+  * Visual understanding
 
-## What changed
+* **AI for Healthcare**
 
-- Large **Shifat Islam** heading, with **Research Engineer** immediately below it.
-- Combined career positioning: **Language, Vision & Healthcare AI**.
-- Prominent **Seeking PhD opportunities** statement, without an invented intake or funding requirement.
-- Three topic-based research areas: language models/low-resource NLP, multimodal learning/computer vision, and healthcare/public-health AI.
-- Six selected papers, with six additional entries behind **View all 12 publications**. Selection reflects relevance, authorship, and coverage of your research areas; it is not a citation ranking.
-- Code cards drawn from public repositories; three versioned datasets checked against ORCID.
-- REG-NER grant with your requested **Research Mentor** designation; publication support from your original UIU profile retained.
-- **Co-Founder & Deputy Director, A.R.i.S.E** added to your existing experience. No Treasurer designation or financial responsibilities included.
-- Education, awards, research toolkit, and a final **Get in touch** section.
+  * Healthcare language technologies
+  * Conversational AI
+  * Health information accessibility
+  * AI-based risk assessment
+  * Bangla healthcare NLP
+  * AI for health in low-resource settings
 
-## Citation data: the same method as Tashreef's website
+I am currently seeking **PhD opportunities** in low-resource NLP, multimodal learning, language technologies, and AI for healthcare.
 
-The reference site's `/Data/metrics.json` explicitly says its metrics need manual updating. Its JavaScript reads that JSON and draws a citation chart; it does not fetch live Scholar counts.
+---
 
-This portfolio now follows that method:
+## Research Portfolio
 
-1. Open your Google Scholar profile and note the total citations, h-index, i10-index, and exact annual citation counts.
-2. Edit `data/metrics.json` in your GitHub repository.
-3. Set `asOf` to the date you checked, in YYYY-MM-DD format.
-4. Fill in `scholar.citations`, `scholar.hIndex`, and `scholar.i10Index`. Leave unknown figures as `null`.
-5. Fill `citationsByYear` with objects containing `year` and `count`; add `partial: true` for the current incomplete year. Do not infer yearly counts from the total.
-6. Commit the change and let your existing GitHub Pages deployment finish. The page reads the JSON file and updates its total and bar-and-line chart, with snapshot date and accessible yearly-count table.
+The portfolio website brings together my research, publications, datasets, projects, mentorship activities, awards, and academic experience.
 
-No API key, subscription, scraping script, or scheduled workflow is needed. The figures remain unchanged until you update the file.
+### Research
 
-Your exact Scholar figures are still unavailable. The JSON is deliberately unpopulated, so the page retains the user-reported 80+ total and the link to Scholar. Supply a screenshot of your own annual chart and metrics to populate it accurately. Do not use Tashreef's counts.
+The portfolio is organized around three connected research directions:
 
-For a downloaded offline preview, run `python build.py` after changing `data/metrics.json`; this embeds the latest snapshot in `index.html`. Hosted pages read the JSON directly, so updating only the JSON is sufficient after deployment.
+**Low-Resource Language AI**
+Developing and evaluating language technologies for Bangla and linguistically diverse, resource-constrained environments.
 
-## Upload to your existing GitHub Pages repository
+**Multimodal AI & Computer Vision**
+Studying how language and visual information can be combined for visual question answering, image understanding, and multimodal learning.
 
-1. Sign in and open https://github.com/ShifatIslam/shifatislam.github.io.
-2. Back up the current repository via **Code → Download ZIP** and record the current Pages publishing settings.
-3. Create a `portfolio-redesign` branch from `main`.
-4. Use **Add file → Upload files**. Upload `index.html`, `style.css`, `script.js`, the entire `data` folder, and the entire `assets` folder to the repository ROOT. Do not upload the ZIP itself or place the website inside an extra parent folder.
-5. Add the empty `.nojekyll` file at the repository root. If hidden on your computer, create it using **Add file → Create new file**. You may also upload `build.py`, `README.md`, and `SOURCES.md` for future maintenance.
-6. Review a pull request from `portfolio-redesign` into `main`, then merge when ready.
-7. Under **Settings → Pages → Build and deployment**, select **Deploy from a branch**, **main**, **/(root)**, then **Save**. If an old custom Actions workflow deploys a different build, review and disable that deployment workflow before switching so it does not overwrite the static version.
-8. Wait for the Pages deployment to succeed in the **Actions** tab, then visit https://shifatislam.github.io/. Refresh without cache if necessary.
+**Healthcare AI**
+Applying NLP, multimodal AI, and machine learning to healthcare information, risk assessment, and conversational systems in low-resource settings.
 
-Official GitHub instructions: https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
+---
 
-To roll back, revert the merged redesign pull request and restore your recorded Pages settings if changed.
+## Selected Research Outputs
 
-## Edit the website later
+The portfolio currently highlights research across:
 
-The served website is `index.html`. You can edit it directly, but a later rebuild will overwrite those direct changes.
+* Bangla regional named entity recognition
+* Bangla hate-speech detection
+* Bangla code generation
+* Bengali visual question answering
+* Bangla healthcare paraphrasing
+* Medical image analysis
+* Explainable computer vision
+* Healthcare risk assessment
+* Conversational AI for adolescent health
 
-For repeatable editing:
+The website includes a selected-publications section together with additional publications and manuscripts.
 
-1. Edit the organized fields in `data/content.json`.
-2. Run `python build.py` from this folder (Python 3, standard library only).
-3. Commit the updated `data/content.json` and generated `index.html`.
+---
 
-Set `selected` to `true` on the six papers you want featured; set the others to `false`. Array order controls display order. Edit colors, typography and spacing in `style.css`. Replace `assets/profile.jpg` to update your portrait.
+## Open Datasets
 
-Grant text and the hero/contact layout are in `build.py`. Citation data is stored in `data/metrics.json`. The builder embeds a copy for offline previews but does not modify the source JSON.
+The portfolio includes publicly available research datasets, including:
 
-The supplied CV was used as a source; the complete PDF has not been published or linked on the website. To include one, add a PDF to `assets/` and link it in the hero. No PhD intake, employment dates, degree completion dates, CGPA or memberships were invented.
+### BengaliVQA
 
-## Verification and review
+A benchmark dataset for visual question answering in Bengali.
 
-- Checked valid nesting, unique IDs, local asset existence, and every internal anchor.
-- Checked 12 paper entries, exactly six selected, all three datasets, and the absence of a Treasurer role.
-- JavaScript syntax checked; responsive rules cover desktop, tablet and mobile; native HTML disclosure handles the additional publications.
-- The browser could inspect the live design reference but its security policy disallowed opening local files. Therefore the finished layout has not been visually verified in that browser. Preview it on desktop and mobile before publishing.
-- Employer was intentionally omitted from the name block, per your choice. UIU/BUET experience and dates now follow the supplied CV.
-- VGDNet uses the Submitted, QPAIN 2026 status reported in the CV. Please confirm whether it has since been published.
-- The Bangla healthcare paraphrasing author list remains as on your original portfolio; A.R.i.S.E lists one author differently (Azizul Hakim versus Azizul Fayaz). Check against the final publisher record before changing that author name.
+🔗 [Dataset](https://data.mendeley.com/datasets/y9fw6k37n9/1)
+🔗 [DOI](https://doi.org/10.17632/y9fw6k37n9.1)
 
-See `SOURCES.md` for content provenance and confirmed publication updates. No changes have been pushed to your GitHub repository.
+### ANCHOLIK-NER
+
+A benchmark for named entity recognition across regional varieties of Bangla.
+
+🔗 [Dataset](https://data.mendeley.com/datasets/gbkszkt8z3/1)
+🔗 [DOI](https://doi.org/10.17632/gbkszkt8z3.1)
+
+### PerilPix
+
+A curated dataset supporting research on extreme and normal selfie detection.
+
+🔗 [Dataset](https://data.mendeley.com/datasets/3rwjgbj4k8/1)
+🔗 [DOI](https://doi.org/10.17632/3rwjgbj4k8.1)
+
+---
+
+## Research Mentorship
+
+I have mentored **20+ undergraduate students** across AI, NLP, computer vision, and multimodal research projects.
+
+Mentored projects represented on the portfolio include:
+
+* Bengali Visual Question Answering for urban road understanding
+* Political hate-speech detection in the Bangladeshi context
+* Benchmarking multimodal architectures for urban VQA
+* Bangladeshi spice image classification and Bengali VQA
+* Balanced eye-disease datasets and model benchmarking
+
+The mentorship section focuses on research supervision, dataset development, experimentation, and model evaluation.
+
+---
+
+## Applied Projects
+
+### Susastho.AI
+
+Conversational AI for adolescent sexual, reproductive, and mental health awareness.
+
+**Technologies:** Flask · PyTorch · LangChain
+
+🔗 [Repository](https://github.com/ShifatIslam/Sushastho-chatbot)
+
+### Intent-Based Search Engine
+
+A semantic product-search system using intent-aware retrieval to connect user queries with relevant results.
+
+**Technologies:** FAISS · LangGraph · Redis · Docker
+
+🔗 [Repository](https://github.com/ShifatIslam/Intent_Based_Search_Engine)
+
+---
+
+## Website Structure
+
+The portfolio is organized into:
+
+```text
+Research
+Publications
+Code & Data
+Open Datasets
+Applied Projects
+Research Mentorship
+Grants & Research Support
+Experience & Leadership
+Education
+Awards & Recognition
+Research Toolkit
+Contact
+```
+
+---
+
+## Technology
+
+The portfolio is a lightweight static website built with:
+
+* HTML5
+* CSS3
+* Vanilla JavaScript
+* JSON-based content and metrics
+* Google Fonts
+* GitHub Pages
+
+No frontend framework or package manager is required.
+
+The site is intentionally lightweight so that the academic content remains the primary focus.
+
+---
+
+## Local Development
+
+Clone the repository:
+
+```bash
+git clone https://github.com/ShifatIslam/shifatislam.github.io.git
+cd shifatislam.github.io
+```
+
+For a simple preview, open:
+
+```text
+index.html
+```
+
+in a browser.
+
+The website does not require npm, a JavaScript framework, or an API key.
+
+If using the content builder, run:
+
+```bash
+python build.py
+```
+
+The project uses organized content and metric files so that future updates can be made without manually rewriting the entire HTML page.
+
+---
+
+## Repository Structure
+
+```text
+shifatislam.github.io/
+│
+├── index.html
+├── style.css
+├── script.js
+├── build.py
+├── README.md
+├── SOURCES.md
+│
+├── data/
+│   ├── content.json
+│   └── metrics.json
+│
+└── assets/
+    ├── favicon.png
+    └── ...
+```
+
+> **Profile photo:** `Profile1.jpg` is kept in the repository root rather than inside `assets/`.
+
+---
+
+## Updating the Portfolio
+
+### Content
+
+Major portfolio content can be maintained through:
+
+```text
+data/content.json
+```
+
+This includes research, publications, mentorship, experience, and other structured content.
+
+### Citation Metrics
+
+Citation information is maintained separately in:
+
+```text
+data/metrics.json
+```
+
+Only verified Google Scholar information should be added.
+
+Recommended fields include:
+
+```json
+{
+  "asOf": "YYYY-MM-DD",
+  "scholar": {
+    "citations": null,
+    "hIndex": null,
+    "i10Index": null
+  },
+  "citationsByYear": []
+}
+```
+
+Unknown values should remain `null` rather than being estimated.
+
+---
+
+## Deployment
+
+The website is designed for **GitHub Pages**.
+
+Recommended configuration:
+
+```text
+Source: Deploy from a branch
+Branch: main
+Folder: / (root)
+```
+
+Every update to the `main` branch can be deployed through GitHub Pages.
+
+🌐 **Live portfolio:**
+https://shifatislam.github.io/
+
+---
+
+## Research Philosophy
+
+> **Build useful AI for languages, people, and environments that are often underrepresented in mainstream datasets and models.**
+
+My research goal is to contribute to AI systems that are more **language-aware, multimodal, accessible, and useful in low-resource settings**.
+
+---
+
+## Contact
+
+For research collaboration, PhD opportunities, or academic discussions:
+
+📧 **[shifat.islam.buet@gmail.com](mailto:shifat.islam.buet@gmail.com)**
+
+🌐 **Portfolio:** https://shifatislam.github.io/
+📚 **Google Scholar:** https://scholar.google.com/citations?user=xO32H0oAAAAJ&hl=en
+💻 **GitHub:** https://github.com/ShifatIslam
+🔗 **ORCID:** https://orcid.org/0009-0008-8433-0264
+💼 **LinkedIn:** https://linkedin.com/in/shifat-islam
+
+---
+
+## License
+
+This repository contains the source code for my personal academic portfolio.
+
+Research papers, datasets, logos, and third-party materials referenced by the website remain subject to their respective licenses and publication terms.
