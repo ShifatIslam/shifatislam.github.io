@@ -3,84 +3,66 @@ name: Update Google Scholar Metrics
 on:
   schedule:
     - cron: "0 0 * * *"
-
   workflow_dispatch:
 
 permissions:
   contents: write
 
-
 jobs:
-
   update:
-
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Checkout
-      uses: actions/checkout@v4
+      - name: Update Google Scholar metrics
+        env:
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+        run: |
+          python <<EOF
+          import requests
+          import json
+          from datetime import date
 
+          url = "https://serpapi.com/search"
 
-    - name: Update metrics
-      env:
-        SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+          params = {
+              "engine": "google_scholar_author",
+              "author_id": "xO32H0oAAAAJ",
+              "api_key": "${SERPAPI_KEY}"
+          }
 
-      run: |
+          r = requests.get(url, params=params)
+          data = r.json()
 
-        python <<EOF
+          author = data["author"]
 
-        import requests
-        import json
-        from datetime import date
+          citations = author["cited_by"]["table"][0]["citations"]
+          hindex = author["cited_by"]["table"][2]["citations"]
+          i10 = author["cited_by"]["table"][3]["citations"]
 
+          file = "data/metrics.json"
 
-        url = "https://serpapi.com/search"
+          with open(file) as f:
+              metrics = json.load(f)
 
-        params = {
-            "engine": "google_scholar_author",
-            "author_id": "xO32H0oAAAAJ",
-            "api_key": "$SERPAPI_KEY"
-        }
+          metrics["asOf"] = str(date.today())
+          metrics["scholar"]["citations"] = citations
+          metrics["scholar"]["hIndex"] = hindex
+          metrics["scholar"]["i10Index"] = i10
 
+          with open(file,"w") as f:
+              json.dump(metrics,f,indent=2)
 
-        response = requests.get(url, params=params)
-
-        data = response.json()
-
-
-        author = data["author"]
-
-
-        metrics = {
-            "_comment": "Automatically updated from Google Scholar",
-            "asOf": str(date.today()),
-            "scholar": {
-                "citations": author["cited_by"]["table"][0]["citations"],
-                "hIndex": author["cited_by"]["table"][1]["citations"],
-                "i10Index": author["cited_by"]["table"][2]["citations"],
-                "url": "https://scholar.google.com/citations?user=xO32H0oAAAAJ"
-            }
-        }
+          EOF
 
 
-        with open("data/metrics.json","w") as f:
-            json.dump(metrics,f,indent=2)
+      - name: Commit changes
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
 
-
-        EOF
-
-
-    - name: Commit update
-
-      run: |
-
-        git config --global user.name github-actions
-
-        git config --global user.email github-actions@github.com
-
-        git add data/metrics.json
-
-        git commit -m "Update Google Scholar metrics" || exit 0
-
-        git push
+          git add data/metrics.json
+          git commit -m "Automatic Google Scholar update" || exit 0
+          git push
