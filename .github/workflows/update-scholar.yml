@@ -1,76 +1,12 @@
 name: Update Google Scholar Metrics
 
 on:
-  schedule:
-    # Runs every day at 00:00 UTC
-    - cron: "0 0 * * *"
-
   workflow_dispatch:
 
-permissions:
-  contents: write
-
 jobs:
-  update-scholar:
-
+  test:
     runs-on: ubuntu-latest
 
     steps:
-
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Install dependencies
-        run: |
-          pip install scholarly
-
-      - name: Update metrics.json
-        env:
-          SCHOLAR_ID: xO32H0oAAAAJ
-        run: |
-
-          python <<'EOF'
-
-          import json
-          from datetime import date
-          from scholarly import scholarly
-
-          scholar_id = "xO32H0oAAAAJ"
-
-          author = scholarly.search_author_id(scholar_id)
-          author = scholarly.fill(author)
-
-          citations = author.get("citedby", 0)
-          hindex = author.get("hindex", 0)
-          i10 = author.get("i10index", 0)
-
-          path = "data/metrics.json"
-
-          with open(path, "r") as f:
-              data = json.load(f)
-
-          data["asOf"] = str(date.today())
-
-          data["scholar"]["citations"] = citations
-          data["scholar"]["hIndex"] = hindex
-          data["scholar"]["i10Index"] = i10
-
-          with open(path, "w") as f:
-              json.dump(data, f, indent=2)
-
-          print("Updated citations:", citations)
-
-          EOF
-
-
-      - name: Commit changes
-        run: |
-
-          git config --global user.name "github-actions"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          git add data/metrics.json
-
-          git commit -m "Update Google Scholar metrics" || exit 0
-
-          git push
+      - name: Test workflow
+        run: echo "Google Scholar workflow is working"
