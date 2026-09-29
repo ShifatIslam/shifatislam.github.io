@@ -1,12 +1,86 @@
 name: Update Google Scholar Metrics
 
 on:
+  schedule:
+    - cron: "0 0 * * *"
+
   workflow_dispatch:
 
+permissions:
+  contents: write
+
+
 jobs:
-  test:
+
+  update:
+
     runs-on: ubuntu-latest
 
     steps:
-      - name: Test workflow
-        run: echo "Google Scholar workflow is working"
+
+    - name: Checkout
+      uses: actions/checkout@v4
+
+
+    - name: Update metrics
+      env:
+        SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+
+      run: |
+
+        python <<EOF
+
+        import requests
+        import json
+        from datetime import date
+
+
+        url = "https://serpapi.com/search"
+
+        params = {
+            "engine": "google_scholar_author",
+            "author_id": "xO32H0oAAAAJ",
+            "api_key": "$SERPAPI_KEY"
+        }
+
+
+        response = requests.get(url, params=params)
+
+        data = response.json()
+
+
+        author = data["author"]
+
+
+        metrics = {
+            "_comment": "Automatically updated from Google Scholar",
+            "asOf": str(date.today()),
+            "scholar": {
+                "citations": author["cited_by"]["table"][0]["citations"],
+                "hIndex": author["cited_by"]["table"][1]["citations"],
+                "i10Index": author["cited_by"]["table"][2]["citations"],
+                "url": "https://scholar.google.com/citations?user=xO32H0oAAAAJ"
+            }
+        }
+
+
+        with open("data/metrics.json","w") as f:
+            json.dump(metrics,f,indent=2)
+
+
+        EOF
+
+
+    - name: Commit update
+
+      run: |
+
+        git config --global user.name github-actions
+
+        git config --global user.email github-actions@github.com
+
+        git add data/metrics.json
+
+        git commit -m "Update Google Scholar metrics" || exit 0
+
+        git push
